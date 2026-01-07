@@ -102,8 +102,11 @@ div {
   max-height: 100%;
 }
 
-img{
+img {
   background-color: white;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /*----------------------------------------------------------------*/
@@ -267,5 +270,6 @@ p{
   }
 
 }
+
 
 
