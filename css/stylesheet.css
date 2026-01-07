@@ -1,0 +1,71 @@
+
+
+@font-face {
+    font-family: 'Compagnon4';
+    src: url('Compagnon-LightItalic.eot');
+    src: url('Compagnon-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Compagnon-LightItalic.woff2') format('woff2'),
+        url('Compagnon-LightItalic.woff') format('woff'),
+        url('Compagnon-LightItalic.ttf') format('truetype'),
+        url('Compagnon-LightItalic.svg#Compagnon-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'Compagnon Roman';
+    src: url('Compagnon-Roman.eot');
+    src: url('Compagnon-Roman.eot?#iefix') format('embedded-opentype'),
+        url('Compagnon-Roman.woff2') format('woff2'),
+        url('Compagnon-Roman.woff') format('woff'),
+        url('Compagnon-Roman.ttf') format('truetype'),
+        url('Compagnon-Roman.svg#Compagnon-Roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Compagnon3';
+    src: url('Compagnon-Light.eot');
+    src: url('Compagnon-Light.eot?#iefix') format('embedded-opentype'),
+        url('Compagnon-Light.woff2') format('woff2'),
+        url('Compagnon-Light.woff') format('woff'),
+        url('Compagnon-Light.ttf') format('truetype'),
+        url('Compagnon-Light.svg#Compagnon-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Compagnon2';
+    src: url('Compagnon-Medium.eot');
+    src: url('Compagnon-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Compagnon-Medium.woff2') format('woff2'),
+        url('Compagnon-Medium.woff') format('woff'),
+        url('Compagnon-Medium.ttf') format('truetype'),
+        url('Compagnon-Medium.svg#Compagnon-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'Compagnon1';
+    src: url('Compagnon-Bold.eot');
+    src: url('Compagnon-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Compagnon-Bold.woff2') format('woff2'),
+        url('Compagnon-Bold.woff') format('woff'),
+        url('Compagnon-Bold.ttf') format('truetype'),
+        url('Compagnon-Bold.svg#Compagnon-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

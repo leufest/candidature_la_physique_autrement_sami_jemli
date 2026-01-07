@@ -1,0 +1,271 @@
+
+/*----------------------------------------------------------------*/
+/* désactivation scroll */
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*----------------------------------------------------------------*/
+/* structure globale */
+
+div {
+  box-sizing: border-box;
+}
+
+.page{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 3vh 3vw;
+  box-sizing: border-box;
+  background-color: white;
+  font-family: 'Compagnon Roman';
+}
+
+.tout{
+  z-index: 1;
+  position: relative;
+  height: auto;
+  width: 94vw;
+  background-color: rgb(225, 225, 255);
+}
+
+/*----------------------------------------------------------------*/
+/* gestion du toggle */
+
+.tout,
+.boite {
+  padding: 10px;
+  cursor: text;
+  border-radius: 15px;
+}
+
+.tout > .boite,
+.boite > .boite {
+  display: none;
+}
+
+.tout.ouvert > .boite,
+.boite.ouvert > .boite {
+  display: block;
+}
+
+/*----------------------------------------------------------------*/
+/* couleurs des boîtes */
+
+.niveau_1{
+  background-color: rgb(215, 215, 255);
+}
+
+.niveau_2{
+  background-color: rgb(205, 205, 255);
+}
+
+.niveau_3{
+  background-color: rgb(195, 195, 255);
+}
+ 
+.niveau_4{
+  background-color: rgb(185, 185, 255);
+}
+
+/*----------------------------------------------------------------*/
+/* gestion des petites images */
+
+.conteneur_images{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.image{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.conteneur_images .image img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+img{
+  background-color: white;
+}
+
+/*----------------------------------------------------------------*/
+/* gestion du plein écran des images */
+
+.zoom{
+  z-index: 2;
+  background-color: rgb(225, 225, 255);
+  position: absolute;
+  left: 3vw;
+  top: 3vh;
+  padding: 10px;
+  width: 94vw;
+  height: 94vh;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.grande_image{
+  background-color: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.grande_image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.description{
+  flex-shrink: 0; 
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  overflow: scroll;
+}
+
+.description p{
+  padding-top: 10px;
+  column-count: 1;
+}
+
+.description h1,
+.description h2 {
+  display: inline;
+}
+
+/*----------------------------------------------------------------*/
+/* gestion des boutons */
+
+.boutons{
+  display: flex;
+  position: absolute;
+  top:0px;
+  right:0px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.bouton{
+  border-radius: 15px;
+  padding: 10px;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+}
+
+.compteur{
+  width: 150px;
+}
+
+.bouton p {
+  margin: 0;
+  text-align: center;
+}
+
+/*----------------------------------------------------------------*/
+/* gestion du texte */
+
+h1{
+  line-height: 25px;
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+h2{
+  line-height: 25px;
+  font-size: 20px;
+  padding-bottom: 4px;
+  font-style: italic;
+}
+
+p{
+  line-height: 25px;
+  font-size: 20px;
+  padding-bottom: 4px;
+  column-gap: 20px;
+}
+
+/*----------------------------------------------------------------*/
+/* gestion du survol */
+
+.boite:has(.boite):not(.ouvert):hover {
+  cursor: pointer;
+}
+
+.boite.ouvert:has(.boite):hover:not(:has(.boite:hover)) {
+  cursor: pointer;
+}
+
+.boite:has(.boite):not(.ouvert):hover > h1 {
+  cursor: pointer;
+  color: blue;
+}
+
+.boite.ouvert:has(.boite):hover:not(:has(.boite:hover)) > h1 {
+  cursor: pointer;
+  color: red;
+}
+
+.image:hover{
+  background-color: rgb(205, 205, 255);
+  cursor: pointer;
+}
+
+.precedent:hover{
+  cursor: pointer;
+  color: blue;
+  background-color: rgb(205, 205, 255);
+}
+
+.suivant:hover{
+  cursor: pointer;
+  color: blue;
+  background-color: rgb(205, 205, 255);
+}
+
+.quitter:hover{
+  cursor: pointer;
+  color:red;
+  background-color: rgb(205, 205, 255);
+}
+
+/*----------------------------------------------------------------*/
+/* responsive */
+
+@media screen and (max-width : 1000px){
+
+  .description p{
+    column-count: 1;
+  }
+
+}
+
+
