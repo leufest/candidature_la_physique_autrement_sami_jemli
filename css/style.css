@@ -102,11 +102,13 @@ div {
   max-height: 100%;
 }
 
-img {
+img{
   background-color: white;
-  max-width: 100%;
-  height: auto;
-  display: block;
+}
+
+.boite.conteneur_images.image img{
+  max-width: 25%;
+  max-height: 25%;
 }
 
 /*----------------------------------------------------------------*/
@@ -114,7 +116,7 @@ img {
 
 .zoom{
   z-index: 2;
-  background-color: rgb(225, 225, 255);
+  background-color: rgb(34, 34, 40);
   position: absolute;
   left: 3vw;
   top: 3vh;
@@ -270,6 +272,5 @@ p{
   }
 
 }
-
 
 
