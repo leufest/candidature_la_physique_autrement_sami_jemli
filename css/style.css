@@ -1,6 +1,11 @@
+/* ================================================================ */
+/* RESET GLOBAL + SCROLLBAR */
 
-/*----------------------------------------------------------------*/
-/* désactivation scroll */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 *::-webkit-scrollbar {
   display: none;
@@ -11,42 +16,35 @@
   scrollbar-width: none;
 }
 
-/*----------------------------------------------------------------*/
-/* structure globale */
+/* ================================================================ */
+/* STRUCTURE GLOBALE */
 
-div {
-  box-sizing: border-box;
-}
-
-.page{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   padding: 3vh 3vw;
-  box-sizing: border-box;
+  overflow-x: hidden;
   background-color: white;
   font-family: 'Compagnon Roman';
 }
 
-.tout{
-  z-index: 1;
+.tout {
   position: relative;
-  height: auto;
-  width: 94vw;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
   background-color: rgb(225, 225, 255);
+  border-radius: 15px;
 }
 
-/*----------------------------------------------------------------*/
-/* gestion du toggle */
+/* ================================================================ */
+/* TOGGLE DES BOÎTES */
 
-.tout,
 .boite {
   padding: 10px;
-  cursor: text;
   border-radius: 15px;
+  cursor: text;
 }
 
 .tout > .boite,
@@ -59,103 +57,87 @@ div {
   display: block;
 }
 
-/*----------------------------------------------------------------*/
-/* couleurs des boîtes */
+/* ================================================================ */
+/* COULEURS DES NIVEAUX */
 
-.niveau_1{
-  background-color: rgb(215, 215, 255);
-}
+.niveau_1 { background-color: rgb(215, 215, 255); }
+.niveau_2 { background-color: rgb(205, 205, 255); }
+.niveau_3 { background-color: rgb(195, 195, 255); }
+.niveau_4 { background-color: rgb(185, 185, 255); }
 
-.niveau_2{
-  background-color: rgb(205, 205, 255);
-}
+/* ================================================================ */
+/* GRILLE D’IMAGES */
 
-.niveau_3{
-  background-color: rgb(195, 195, 255);
-}
- 
-.niveau_4{
-  background-color: rgb(185, 185, 255);
-}
-
-/*----------------------------------------------------------------*/
-/* gestion des petites images */
-
-.conteneur_images{
+.conteneur_images {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.image{
+.image {
   width: 100%;
   aspect-ratio: 1 / 1;
   background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 15px;
   padding: 10px;
-}
-
-.conteneur_images .image img{
-  max-width: 100%;
-  max-height: 100%;
-}
-
-img{
-  background-color: white;
-}
-
-.boite.conteneur_images.image img{
-  max-width: 25%;
-  max-height: 25%;
-}
-
-/*----------------------------------------------------------------*/
-/* gestion du plein écran des images */
-
-.zoom{
-  z-index: 2;
-  background-color: rgb(34, 34, 40);
-  position: absolute;
-  left: 3vw;
-  top: 3vh;
-  padding: 10px;
-  width: 94vw;
-  height: 94vh;
-  display: none;
-  flex-wrap: wrap;
-  flex-direction: column;
-  border-radius: 15px;
-}
-
-.grande_image{
-  background-color: white;
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ================================================================ */
+/* ZOOM IMAGE PLEIN ÉCRAN */
+
+.zoom {
+  position: fixed;
+  inset: 3vh 3vw;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
   padding: 10px;
+  background-color: rgb(34, 34, 40);
   border-radius: 15px;
+}
+
+.grande_image {
+  flex: 1;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .grande_image img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
 }
 
-.description{
-  flex-shrink: 0; 
+.description {
+  flex-shrink: 0;
   background-color: white;
-  padding: 10px;
   border-radius: 15px;
-  overflow: scroll;
+  padding: 10px;
+  overflow-y: auto;
 }
 
-.description p{
-  padding-top: 10px;
+.description p {
   column-count: 1;
+  column-gap: 20px;
+  padding-top: 10px;
 }
 
 .description h1,
@@ -163,29 +145,27 @@ img{
   display: inline;
 }
 
-/*----------------------------------------------------------------*/
-/* gestion des boutons */
+/* ================================================================ */
+/* BOUTONS */
 
-.boutons{
-  display: flex;
+.boutons {
   position: absolute;
-  top:0px;
-  right:0px;
-  margin-top: 20px;
-  margin-right: 20px;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-.bouton{
+.bouton {
+  width: 50px;
+  padding: 10px 10px 16px;
   border-radius: 15px;
-  padding: 10px;
-  padding-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
 }
 
-.compteur{
+.compteur {
   width: 150px;
 }
 
@@ -194,83 +174,67 @@ img{
   text-align: center;
 }
 
-/*----------------------------------------------------------------*/
-/* gestion du texte */
+/* ================================================================ */
+/* TEXTE */
 
-h1{
-  line-height: 25px;
+h1 {
   font-size: 20px;
+  line-height: 25px;
   padding-bottom: 10px;
   font-weight: bold;
 }
 
-h2{
-  line-height: 25px;
+h2 {
   font-size: 20px;
+  line-height: 25px;
   padding-bottom: 4px;
   font-style: italic;
 }
 
-p{
-  line-height: 25px;
+p {
   font-size: 20px;
+  line-height: 25px;
   padding-bottom: 4px;
-  column-gap: 20px;
 }
 
-/*----------------------------------------------------------------*/
-/* gestion du survol */
+/* ================================================================ */
+/* HOVER & INTERACTIONS */
 
-.boite:has(.boite):not(.ouvert):hover {
-  cursor: pointer;
-}
-
+.boite:has(.boite):not(.ouvert):hover,
 .boite.ouvert:has(.boite):hover:not(:has(.boite:hover)) {
   cursor: pointer;
 }
 
 .boite:has(.boite):not(.ouvert):hover > h1 {
-  cursor: pointer;
   color: blue;
 }
 
 .boite.ouvert:has(.boite):hover:not(:has(.boite:hover)) > h1 {
-  cursor: pointer;
   color: red;
 }
 
-.image:hover{
-  background-color: rgb(205, 205, 255);
-  cursor: pointer;
-}
-
-.precedent:hover{
-  cursor: pointer;
-  color: blue;
+.image:hover {
   background-color: rgb(205, 205, 255);
 }
 
-.suivant:hover{
+.precedent:hover,
+.suivant:hover {
   cursor: pointer;
   color: blue;
   background-color: rgb(205, 205, 255);
 }
 
-.quitter:hover{
+.quitter:hover {
   cursor: pointer;
-  color:red;
+  color: red;
   background-color: rgb(205, 205, 255);
 }
 
-/*----------------------------------------------------------------*/
-/* responsive */
+/* ================================================================ */
+/* RESPONSIVE */
 
-@media screen and (max-width : 1000px){
-
-  .description p{
+@media screen and (max-width: 1000px) {
+  .description p {
     column-count: 1;
   }
-
 }
-
-
